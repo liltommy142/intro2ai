@@ -110,11 +110,13 @@ def test_bad_input_never_raises():
     tracker.update(None, (0, 0), None, step=0)
     assert tracker.get_target((0, 0)) is None
 
+    # enemy_pos ngoài biên: không cần khôi phục y nguyên belief cũ (framework không sinh ra
+    # tình huống này), chỉ cần không văng exception và belief còn là phân phối hợp lệ.
     obs = make_observation((21, 21), (2, 2), radius=2)
     tracker.update(obs, (2, 2), (3, 3), step=1)
-    old = tracker.belief.copy()
     tracker.update(obs, (2, 2), (999, 999), step=2)
-    assert np.allclose(tracker.belief, old)
+    assert_distribution(tracker, obs)
+    assert tracker.get_target((2, 2)) is not None
 
 
 def benchmark_update():

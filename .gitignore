@@ -48,3 +48,6 @@ labs/lab2/plan.md
 CLAUDE.md
 CLAUDE.local.md
 ruff.toml
+
+# Ban sao luu init truoc khi don dep (khong day len remote)
+labs/lab2/_backup/
