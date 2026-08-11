@@ -18,7 +18,7 @@ Biến project thành workspace gọn, đủ cho hai người nghiên cứu pape
 
 ## Phạm vi loại bỏ
 
-- Hai tệp trùng hoàn toàn ở `project/plan.md` và `project/note.md`; bản chuẩn nằm trong workspace A-Star và nội dung hữu ích sẽ được chắt lọc vào các tài liệu giữ lại.
+- Bốn tệp `plan.md`/`note.md`: hai bản ở `project/` trùng hoàn toàn với hai bản trong workspace A-Star; sau khi chắt lọc nội dung hữu ích vào các tài liệu giữ lại, cả bốn bản không còn cần thiết.
 - Các tài liệu template phân mảnh trong `docs/01_Project`, `docs/02_Paper`, `docs/03_Technical`, `docs/04_Video`.
 - `ROADMAP.md`, `TIMELINE.md`, `MEETING.md`, `CHANGELOG.md` và `CONTRIBUTING.md`; chúng chưa chứa lịch sử hay quy trình thực tế, và nhiệm vụ của chúng được thay bởi `TODO.md`/README.
 - `docs/meetings/meeting-01.md` rỗng.

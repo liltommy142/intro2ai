@@ -1,55 +1,36 @@
 # A-Star-DUSt3R
 
-Trang chủ project cho nhóm A-Star-DUSt3R.
+Workspace của nhóm 2 người để nghiên cứu **DUSt3R: Geometric 3D Vision Made Easy** và sản xuất video giải thích theo phong cách 3Blue1Brown bằng Manim.
 
-## Mục đích
+## Mục tiêu
 
-Kho lưu trữ này được tổ chức để quản lý toàn bộ quy trình làm dự án: planning, documentation, paper review, technical notes, và video production.
+Sản phẩm cuối là video giáo dục bằng Manim, giải thích trực quan bài toán, ý tưởng và kết quả của DUSt3R. Video không vượt quá 30 phút; mọi thành viên phải hiểu nội dung để trả lời vấn đáp.
 
-## Cấu trúc thư mục
+## Bắt đầu từ đây
 
-- README.md: Trang chủ project
-- note.md: Quy định môn học
-- plan.md: Roadmap của nhóm
-- TEAM.md: Thông tin thành viên và phân công
-- TODO.md: Danh sách việc cần làm
-- ROADMAP.md: Lộ trình phát triển
-- TIMELINE.md: Mốc thời gian
-- CONTRIBUTING.md: Hướng dẫn đóng góp
-- CHANGELOG.md: Lịch sử thay đổi
-- MEETING.md: Ghi chú họp nhóm
-- docs/: Tài liệu dự án phân theo nhóm nội dung
+1. Xem [TODO.md](TODO.md) — nguồn trạng thái công việc duy nhất.
+2. Đọc [research.md](docs/research.md) — tóm tắt nội dung và nguồn tham khảo.
+3. Chốt [storyboard.md](docs/storyboard.md), rồi viết [voice-script.md](docs/voice-script.md).
+4. Dùng [submission-checklist.md](docs/submission-checklist.md) trước khi nộp.
 
-## Danh mục tài liệu
+## Bảy scene
 
-### 1. Project
-- project-specification.md
-- submission-checklist.md
-- grading-checklist.md
+1. Intro
+2. Problem
+3. Traditional Pipeline
+4. DUSt3R Method
+5. Architecture
+6. Results
+7. Conclusion
 
-### 2. Paper
-- paper-summary.md
-- paper-glossary.md
-- paper-contributions.md
-- related-work.md
+## Cấu trúc
 
-### 3. Technical
-- architecture.md
-- pipeline.md
-- training.md
-- inference.md
-- evaluation.md
-- question-bank.md
+```text
+references/   Chỉ thêm paper, supplementary material và BibTeX thật
+docs/         Research, storyboard, lời thoại và checklist nộp bài
+src/scenes/   Mã Manim thực tế (chỉ thêm sau khi scene đã chốt)
+```
 
-### 4. Video
-- storyboard.md
-- voice-script.md
-- animation-plan.md
-- asset-list.md
+## Nguồn
 
-## Bắt đầu
-
-1. Xem lại file plan.md và ROADMAP.md.
-2. Cập nhật thông tin nhóm trong TEAM.md.
-3. Theo dõi công việc trong TODO.md.
-4. Điền nội dung phù hợp vào từng file trong docs/.
+Repository hiện chưa chứa source học thuật đã kiểm chứng. Thêm paper, supplementary material và BibTeX thật vào `references/` trước khi hoàn thiện research brief hoặc dùng số liệu trong video.
