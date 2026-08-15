@@ -1,8 +1,7 @@
-Dưới đây là phiên bản **viết lại** của `note.md`, giữ nguyên nội dung và yêu cầu của giảng viên nhưng được tổ chức lại rõ ràng, dễ đọc và dễ theo dõi hơn.
 
 # FAI Project Guidelines (Rewritten)
 
-# 1. Project Objective
+## 1. Project Objective
 
 Students will complete this project in the **same teams** that were formed for previous labs and project activities.
 
@@ -17,7 +16,7 @@ The final video must **not exceed 30 minutes**.
 
 ---
 
-# 2. Video Requirements
+## 2. Video Requirements
 
 The video should follow the storytelling and visualization style of the **3Blue1Brown** YouTube channel.
 
@@ -41,7 +40,7 @@ The animations are created programmatically using Manim. They are **not AI-gener
 
 ---
 
-# 3. AI Usage Policy
+## 3. AI Usage Policy
 
 The use of AI tools is **allowed**.
 
@@ -53,7 +52,7 @@ However:
 
 ---
 
-# 4. Publication Registration
+## 4. Publication Registration
 
 Each team must register exactly **one publication**.
 
@@ -72,11 +71,11 @@ Editing an existing submission is **not allowed**. Any modification requires sub
 
 ---
 
-# 5. Publication Selection Requirements
+## 5. Publication Selection Requirements
 
 Your selected publication must satisfy the following conditions.
 
-## 5.1 Publication Time
+### 5.1 Publication Time
 
 The paper must be **no older than three years**.
 
@@ -91,13 +90,13 @@ Rules:
 
 ---
 
-## 5.2 Publication Quality
+### 5.2 Publication Quality
 
 The publication should appear in a **high-quality venue**.
 
 Two types of venues are accepted:
 
-### Conferences
+#### Conferences
 
 Conference rankings are determined using **CORE Ranking**.
 
@@ -108,7 +107,7 @@ Accepted ranks:
 
 ---
 
-### Journals
+#### Journals
 
 Journal quality is determined using the **SCIE (Web of Science)** index.
 
@@ -118,7 +117,7 @@ Accepted category:
 
 ---
 
-## 5.3 Citation-Based Exception
+### 5.3 Citation-Based Exception
 
 If the publication:
 
@@ -141,8 +140,7 @@ Example:
 Citation counts should be obtained from **Google Scholar**.
 
 ---
-
-## 5.4 Topic Requirement
+### 5.4 Topic Requirement
 
 The selected publication must:
 
@@ -164,7 +162,7 @@ Survey papers are acceptable if they satisfy all other requirements.
 
 ---
 
-# 6. Registration Form Information
+## 6. Registration Form Information
 
 Each team must provide the following information.
 
@@ -257,7 +255,7 @@ Examples include:
 
 ---
 
-# 7. Deliverables
+## 7. Deliverables
 
 Each team is expected to submit:
 
