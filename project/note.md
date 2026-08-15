@@ -128,7 +128,7 @@ then it may still be accepted if it satisfies the citation requirement.
 
 Required citations:
 
-```
+```text
 Required Citations = Publication Age (months) × 2
 ```
 
@@ -140,6 +140,7 @@ Example:
 Citation counts should be obtained from **Google Scholar**.
 
 ---
+
 ### 5.4 Topic Requirement
 
 The selected publication must:
