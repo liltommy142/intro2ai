@@ -1,0 +1,347 @@
+1
+00:00:00,000 --> 00:00:03,000
+Đây là hai bức ảnh của cùng một căn phòng.
+
+2
+00:00:04,000 --> 00:00:14,000
+Chúng chỉ là những lưới pixel hai chiều. Không có dòng chữ nào nói cho ta cái ghế cách camera bao xa, bức tường nằm ở đâu, hay camera thứ hai đã di chuyển như thế nào.
+
+3
+00:00:15,000 --> 00:00:20,000
+Vậy mà khi nhìn vào chúng, chúng ta gần như ngay lập tức cảm nhận được chiều sâu.
+
+4
+00:00:21,000 --> 00:00:23,000
+Vậy một máy tính sẽ làm điều đó như thế nào?
+
+5
+00:00:25,000 --> 00:00:28,000
+Hay nói chính xác hơn: Làm thế nào để biến những bức ảnh 2D thành một thế giới 3D?
+
+6
+00:00:28,000 --> 00:00:29,000
+Hãy nhìn vào một pixel.
+
+7
+00:00:29,000 --> 00:00:32,000
+Nó có vị trí. Nó có màu.
+
+8
+00:00:33,000 --> 00:00:35,000
+Nhưng phép chiếu camera đã làm mất một thứ: độ sâu.
+
+9
+00:00:36,000 --> 00:00:43,000
+Điểm ngoài đời tương ứng với pixel đó có thể ở rất gần, rất xa, hoặc ở bất kỳ đâu trên cùng một tia đi ra từ camera.
+
+10
+00:00:45,000 --> 00:00:48,000
+Một ảnh 2D là kết quả của việc ép thế giới 3D lên một mặt phẳng.
+
+11
+00:00:48,000 --> 00:00:52,000
+Và reconstruction là cố gắng đảo ngược phép biến đổi đó.
+
+12
+00:00:52,000 --> 00:00:54,000
+Bây giờ thêm một camera thứ hai.
+
+13
+00:00:55,000 --> 00:00:58,000
+Cùng một điểm 3D xuất hiện ở hai vị trí khác nhau trên hai ảnh.
+
+14
+00:00:59,000 --> 00:01:03,000
+Nếu biết hai camera nằm ở đâu, ta có thể dựng một tia từ mỗi camera.
+
+15
+00:01:03,000 --> 00:01:07,000
+Nơi hai tia gặp nhau cho ta vị trí của điểm đó trong không gian.
+
+16
+00:01:07,000 --> 00:01:14,000
+Đó là triangulation, và là lý do hai góc nhìn mang lại nhiều thông tin 3D hơn một góc nhìn.
+
+17
+00:01:14,000 --> 00:01:21,000
+Nhưng để triangulate, trước tiên phải biết pixel nào ở ảnh này tương ứng với pixel nào ở ảnh kia.
+
+18
+00:01:22,000 --> 00:01:24,000
+Rồi phải ước lượng mối quan hệ giữa các camera.
+
+19
+00:01:25,000 --> 00:01:36,000
+Với nhiều ảnh, ta có một chuỗi khá dài: tìm keypoints, matching, camera geometry, triangulation, sparse reconstruction, rồi dense reconstruction.
+
+20
+00:01:36,000 --> 00:01:43,000
+Những pipeline như SfM và MVS rất mạnh, nhưng chúng có một nhược điểm tự nhiên: lỗi ở bước trước có thể truyền xuống bước sau.
+
+21
+00:01:43,000 --> 00:01:44,000
+DUSt3R bắt đầu bằng cách đặt lại câu hỏi.
+
+22
+00:01:44,000 --> 00:01:49,000
+Thay vì hỏi: “Camera nằm ở đâu để từ đó ta dựng được 3D?”
+
+23
+00:01:50,000 --> 00:01:53,000
+DUSt3R thử hỏi: “Nếu ta dự đoán 3D trực tiếp trước thì sao?”
+
+24
+00:01:53,000 --> 00:01:55,000
+Không phải camera pose trước.
+
+25
+00:01:55,000 --> 00:01:57,000
+Không phải correspondence trước.
+
+26
+00:01:57,000 --> 00:02:01,000
+Mà trực tiếp: Mỗi pixel này nằm ở đâu trong không gian 3D?
+
+27
+00:02:02,000 --> 00:02:05,000
+Đây là cú đổi góc nhìn trung tâm của DUSt3R.
+
+28
+00:02:05,000 --> 00:02:10,000
+DUSt3R dùng một representation gọi là pointmap.
+
+29
+00:02:10,000 --> 00:02:15,000
+Ảnh có kích thước W × H. Một pointmap cũng có cùng lưới đó.
+
+30
+00:02:16,000 --> 00:02:22,000
+Nhưng thay vì mỗi pixel chỉ mang thông tin màu, mỗi pixel được gắn với một tọa độ 3D: X, Y, Z.
+
+31
+00:02:24,000 --> 00:02:28,000
+Nói cách khác: pixel này tương ứng với điểm này trong không gian.
+
+32
+00:02:28,000 --> 00:02:31,000
+Pixel bên cạnh tương ứng với điểm bên cạnh.
+
+33
+00:02:31,000 --> 00:02:38,000
+Và nếu làm điều đó cho toàn bộ ảnh, mặt phẳng 2D bắt đầu bung ra thành một bề mặt 3D.
+
+34
+00:02:39,000 --> 00:02:47,000
+Điểm đẹp của pointmap là nó vẫn giữ quan hệ trực tiếp với pixel gốc, nhưng đồng thời đã sống trong không gian 3D.
+
+35
+00:02:48,000 --> 00:02:52,000
+Nó nối image space và 3D space trong cùng một representation.
+
+36
+00:02:52,000 --> 00:02:56,000
+DUSt3R còn làm một việc quan trọng hơn nữa.
+
+37
+00:02:56,000 --> 00:02:58,000
+Với hai ảnh, nó tạo hai pointmap.
+
+38
+00:02:58,000 --> 00:03:04,000
+Nhưng pointmap của ảnh thứ hai không nằm trong coordinate frame riêng của camera thứ hai.
+
+39
+00:03:04,000 --> 00:03:10,000
+Cả hai pointmap đều được biểu diễn trong coordinate frame của camera thứ nhất.
+
+40
+00:03:11,000 --> 00:03:14,000
+Điều này có nghĩa là hai geometry đã nằm trong cùng một hệ tọa độ.
+
+41
+00:03:15,000 --> 00:03:21,000
+Relationship giữa hai viewpoint vì thế đã được encode ngầm trong chính geometry.
+
+42
+00:03:21,000 --> 00:03:25,000
+Camera pose không còn là thứ bắt buộc phải biết trước khi có 3D.
+
+43
+00:03:25,000 --> 00:03:29,000
+Nó trở thành thứ có thể được suy ra từ representation đó.
+
+44
+00:03:29,000 --> 00:03:34,000
+DUSt3R là một neural network dựa trên Transformer.
+
+45
+00:03:34,000 --> 00:03:39,000
+Hai ảnh đi qua một Vision Transformer encoder dùng chung weights.
+
+46
+00:03:39,000 --> 00:03:43,000
+Sau đó hai decoder trao đổi thông tin bằng cross-attention.
+
+47
+00:03:44,000 --> 00:03:49,000
+Ta có thể hình dung mỗi branch như một người quan sát scene từ một góc khác.
+
+48
+00:03:50,000 --> 00:03:57,000
+Mỗi bên tự hiểu view của mình, rồi liên tục hỏi bên kia: những gì tôi thấy liên quan thế nào đến những gì bạn thấy?
+
+49
+00:03:57,000 --> 00:04:00,000
+Cuối cùng, mỗi branch dự đoán một pointmap và một confidence map.
+
+50
+00:04:01,000 --> 00:04:09,000
+Architecture trả lời câu hỏi “How?”, nhưng pointmap mới là lý do “Why?” khiến DUSt3R có thể unify nhiều bài toán.
+
+51
+00:04:09,000 --> 00:04:16,170
+Trong lúc training, DUSt3R không cần một bộ loss riêng cho từng task như depth, pose hay matching.
+
+52
+00:04:16,750 --> 00:04:17,990
+Ý tưởng chính đơn giản hơn:
+
+53
+00:04:18,550 --> 00:04:23,750
+predicted 3D point càng xa ground-truth 3D point, loss càng lớn.
+
+54
+00:04:24,740 --> 00:04:31,110
+Vì scale tuyệt đối có thể mơ hồ, prediction và ground truth được normalize trước khi so sánh.
+
+55
+00:04:31,840 --> 00:04:36,650
+Và vì không phải pixel nào cũng dễ, model còn học một confidence cho từng pixel.
+
+56
+00:04:37,510 --> 00:04:42,800
+Nó vừa học reconstruction, vừa học vùng nào trong reconstruction đáng tin hơn.
+
+57
+00:04:42,800 --> 00:04:46,520
+Bây giờ ta thấy sức mạnh của representation này.
+
+58
+00:04:47,360 --> 00:04:54,840
+Nếu hai pixel ở hai ảnh được dự đoán tới gần cùng một vị trí 3D, chúng rất có khả năng là cùng một điểm ngoài đời.
+
+59
+00:04:55,620 --> 00:04:57,920
+Vậy correspondence có thể suy ra từ pointmap.
+
+60
+00:04:58,880 --> 00:05:04,640
+Nếu biết pixel và 3D point tương ứng, camera parameters cũng có thể được recover.
+
+61
+00:05:04,640 --> 00:05:15,180
+Và nếu cùng một scene được biểu diễn trong hai coordinate frames khác nhau, ta có thể tìm phép xoay, dịch chuyển và scale làm hai point clouds khớp nhau.
+
+62
+00:05:15,940 --> 00:05:18,780
+Phép biến đổi đó cho ta mối quan hệ giữa hai camera.
+
+63
+00:05:19,380 --> 00:05:25,100
+Từ một representation duy nhất, ta có thể suy ra depth, matching, camera pose và reconstruction.
+
+64
+00:05:25,460 --> 00:05:30,120
+Không phải vì network có một output riêng cho từng task.
+
+65
+00:05:31,060 --> 00:05:35,510
+Mà vì tất cả chúng đều là những góc nhìn khác nhau của cùng một geometry.
+
+66
+00:05:35,510 --> 00:05:40,580
+Với hai ảnh, mọi thứ khá gọn.
+
+67
+00:05:41,620 --> 00:05:44,050
+Nhưng một scene thực tế có thể có hàng chục ảnh.
+
+68
+00:05:44,560 --> 00:05:52,290
+DUSt3R vẫn xử lý các cặp ảnh, nên mỗi pair ban đầu có một reconstruction cục bộ.
+
+69
+00:05:53,340 --> 00:05:59,040
+Để dựng cả scene, các reconstruction đó phải được đưa vào một world coordinate frame chung.
+
+70
+00:05:59,960 --> 00:06:07,700
+DUSt3R xây một graph: mỗi image là một node, các pair liên quan tạo thành edge.
+
+71
+00:06:08,750 --> 00:06:13,630
+Sau đó global alignment tìm pose và scale cho các pair sao cho tất cả pointmaps cùng đồng ý về một geometry toàn cục.
+
+72
+00:06:14,300 --> 00:06:18,930
+Thay vì chỉ nhìn lỗi sau khi project lại về ảnh 2D như Bundle Adjustment truyền thống, pointmaps cho phép alignment được thực hiện trực tiếp trong 3D.
+
+73
+00:06:18,930 --> 00:06:27,290
+Một kết quả khá bất ngờ là DUSt3R vẫn có thể tạo reconstruction hợp lý trong những trường hợp hai viewpoint khác nhau rất mạnh, thậm chí có ví dụ gần như không có visual overlap.
+
+74
+00:06:28,240 --> 00:06:33,440
+Điều này cho thấy model không chỉ đang lặp lại triangulation cổ điển.
+
+75
+00:06:34,350 --> 00:06:40,870
+Nó còn dựa trên những geometric và shape priors đã học từ dữ liệu.
+
+76
+00:06:41,680 --> 00:06:47,810
+Nói cách khác, model đã học một phần về việc thế giới 3D thường được cấu trúc như thế nào.
+
+77
+00:06:48,020 --> 00:06:51,280
+Nếu phải tóm tắt DUSt3R bằng một ý duy nhất, tôi sẽ không bắt đầu từ Transformer.
+
+78
+00:06:51,870 --> 00:06:54,000
+Tôi sẽ bắt đầu từ representation.
+
+79
+00:06:54,610 --> 00:06:56,220
+3D vision truyền thống thường cố giải từng câu hỏi riêng:
+
+80
+00:06:57,220 --> 00:07:01,130
+pixel nào match nhau? camera ở đâu? depth là bao nhiêu?
+
+81
+00:07:01,740 --> 00:07:07,030
+rồi ghép các câu trả lời lại để dựng scene.
+
+82
+00:07:07,720 --> 00:07:10,500
+DUSt3R thử một thứ tự khác:
+
+83
+00:07:11,130 --> 00:07:17,260
+trước tiên, học cách đặt các pixel vào một representation 3D chung.
+
+84
+00:07:17,900 --> 00:07:23,380
+Và một khi representation đó tồn tại, nhiều bài toán trước kia từng đứng riêng bắt đầu trở thành những hệ quả của cùng một geometry.
+
+85
+00:07:24,400 --> 00:07:28,710
+Có lẽ đó là ý nghĩa hay nhất của “Geometric 3D Vision Made Easy”.
+
+86
+00:07:29,300 --> 00:07:31,890
+Không phải 3D vision bỗng trở nên dễ.
+
+87
+00:07:32,510 --> 00:07:37,640
+Mà là một representation tốt có thể khiến rất nhiều bước trở nên đơn giản hơn.
