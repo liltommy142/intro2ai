@@ -4,6 +4,7 @@
 
 - [ ] Bài toán, đóng góp, phương pháp, kết quả và giới hạn đều chính xác theo paper.
 - [ ] Cả hai thành viên trả lời được câu hỏi về pointmap, calibration và global alignment.
+- [ ] Video xây hiểu biết theo từng bước bằng animation Manim; không biến thành slide đọc paper hoặc video AI tạo sinh.
 
 ## Source và assets
 

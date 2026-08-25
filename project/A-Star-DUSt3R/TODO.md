@@ -1,26 +1,27 @@
-# Backlog
+# Backlog — nguồn trạng thái duy nhất
 
-`TODO.md` là nguồn trạng thái công việc duy nhất của nhóm.
+## Đã hoàn tất
 
-## 1. Research
+- [x] **Tuấn** — Đọc paper chính và supplementary; chốt formulation, training, downstream, benchmark và giới hạn.
+- [x] **Tuấn** — Soạn research brief và 12 câu vấn đáp có dẫn chiếu section/equation/table.
+- [x] **Tuấn** — Chốt cốt truyện bảy chương, visual grammar và lời thoại mục tiêu 9:20.
+- [x] **Anh Tuấn** — Thiết lập Manim 0.21 và visual primitives dùng chung.
+- [x] **Anh Tuấn** — Thay toàn bộ placeholder bằng bảy chapter có animation thật.
+- [x] **Cả hai** — Smoke render từng chapter; kiểm tra pointmap/common frame/cross-attention/global alignment không diễn giải sai paper.
 
-- [ ] **Tuấn** — Hoàn tất research brief có citation cho bài toán, đóng góp, phương pháp, training/inference, kết quả và giới hạn.
-- [ ] **Anh Tuấn** — Kiểm tra thuật ngữ kỹ thuật và xác nhận phần minh hoạ không diễn giải sai paper.
-- [ ] **Tuấn** — Chuẩn bị bộ câu hỏi vấn đáp; mỗi câu có câu trả lời ngắn và dẫn chiếu đến paper.
+## Việc còn lại trước bản nộp
 
-## 2. Storyboard và lời thoại
+- [ ] **Tuấn** — Thu voice-over theo `docs/voice-script.md`, giữ riêng từng chapter.
+- [ ] **Anh Tuấn** — Sync `run_time`/`wait` theo voice thật; không kéo giãn animation chỉ để đủ 9:20.
+- [ ] **Tuấn** — Thu gọn hoặc chia câu nếu một visual beat không đủ thời gian giải thích.
+- [ ] **Anh Tuấn** — Thêm audio, subtitle và end-credit citation; render một bản 720p review.
+- [ ] **Cả hai** — Duyệt hình–lời, metric/caveat, chính tả, âm lượng và tổng thời lượng.
+- [ ] **Anh Tuấn** — Render 1080p bản cuối và kiểm tra phát từ đầu đến cuối.
+- [ ] **Cả hai** — Áp dụng yêu cầu tên file/định dạng khi giảng viên công bố.
 
-- [ ] **Tuấn** — Chốt storyboard đủ bảy scene, mục tiêu từng scene, visual và thời lượng tổng không quá 30 phút.
-- [ ] **Tuấn** — Viết lời thoại khớp storyboard, có chuyển cảnh và citation khi dùng hình/số liệu từ paper.
-- [ ] **Anh Tuấn** — Duyệt tính khả thi của từng visual trong Manim trước khi bắt đầu code.
+## Quy tắc chống phình project
 
-## 3. Production
-
-- [ ] **Anh Tuấn** — Thiết lập môi trường Manim và render thử một scene thật.
-- [ ] **Anh Tuấn** — Tạo asset có nguồn rõ ràng, sau đó code và render bảy scene theo storyboard đã duyệt.
-- [ ] **Tuấn** — Duyệt video draft về tính chính xác, mạch kể chuyện và đồng bộ hình–lời.
-
-## 4. Submission
-
-- [ ] **Tuấn** — Kiểm tra citation, phụ đề, lỗi chính tả, thời lượng và tính đầy đủ của source.
-- [ ] **Anh Tuấn** — Render bản cuối và kiểm tra video phát được từ đầu đến cuối.
+- Không thêm scene thứ tám; nội dung mới phải thay hoặc rút gọn một beat hiện có.
+- Không copy figure/table vào video nếu vector animation đang giải thích được cùng ý.
+- Không thêm framework, asset pack hay model AI mới chỉ để trang trí.
+- Chỉ `research.md` giữ kiến thức paper; không tạo thêm note trùng lặp.

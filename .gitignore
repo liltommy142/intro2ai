@@ -51,3 +51,6 @@ ruff.toml
 
 # Ban sao luu init truoc khi don dep (khong day len remote)
 labs/lab2/_backup/
+
+# Generated Manim renders at repository root
+/media/

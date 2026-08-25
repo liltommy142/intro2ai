@@ -17,6 +17,13 @@ venv/
 # Logs
 *.log
 
+# Generated Manim renders
+media/
+
+# Large source videos/archives stay local; official links live in README
+references/**/*.mp4
+references/**/*.zip
+
 # Environment files
 .env
 .env.*
