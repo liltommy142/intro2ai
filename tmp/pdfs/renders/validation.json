@@ -1,0 +1,32 @@
+[
+  {
+    "file": "D:\\Study\\intro2ai\\output\\pdf\\DE-CUONG-ON-FINAL-CSC14003.pdf",
+    "size_bytes": 80393,
+    "pages": 8,
+    "page_text_chars": [
+      1183,
+      2179,
+      2074,
+      2450,
+      2340,
+      2166,
+      2478,
+      896
+    ],
+    "empty_pages": [],
+    "blocks_outside_page": [],
+    "contact_sheet": "D:\\Study\\intro2ai\\tmp\\pdfs\\renders\\DE-CUONG-ON-FINAL-CSC14003-CONTACT.png"
+  },
+  {
+    "file": "D:\\Study\\intro2ai\\output\\pdf\\CHEATSHEET-FINAL-CSC14003.pdf",
+    "size_bytes": 60933,
+    "pages": 2,
+    "page_text_chars": [
+      4148,
+      1979
+    ],
+    "empty_pages": [],
+    "blocks_outside_page": [],
+    "contact_sheet": "D:\\Study\\intro2ai\\tmp\\pdfs\\renders\\CHEATSHEET-FINAL-CSC14003-CONTACT.png"
+  }
+]
